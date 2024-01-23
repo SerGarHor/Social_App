@@ -1,0 +1,27 @@
+.center-container{
+    display: flex;
+    width: 100%;
+    .login-title{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+mat-card{
+    width: 50%;
+    margin: 10% 0;
+}
+
+mat-card-content{
+    h1 {
+        margin: 10% 25% 10% 25%;
+        text-align: center;
+    }
+    p{
+        text-align: center;
+    }
+    display: flex;
+    flex-direction: column;
+}

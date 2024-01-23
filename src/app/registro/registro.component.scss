@@ -1,0 +1,13 @@
+mat-card{
+    margin: 6%;
+}
+
+mat-card-content{
+    h1{
+        text-align: center;
+    }
+    .inputs-form{
+        display: flex;
+        flex-direction: column;
+    }
+}
