@@ -1,0 +1,15 @@
+<div class="dialog-style">
+    <h2>¿Que estas pensando?</h2>
+    <div class="dialog-content">
+        <mat-form-field>
+            <mat-label>Titulo</mat-label>
+            <input [(ngModel)]="titulo" matInput placeholder="Algo increible">
+        </mat-form-field>
+        <textarea [(ngModel)]="publication" name="" id="" cols="30" rows="10" value="publication"></textarea>
+        <button mat-raised-button color="primary" (click)="save()" >Save</button>
+    </div>
+</div>
+    
+
+    
+
