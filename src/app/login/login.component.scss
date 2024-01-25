@@ -1,23 +1,32 @@
 .center-container{
     display: flex;
     width: 100%;
-    .login-title{
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+    height: 100vh;
+}
+
+.style-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-title{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
 }
 
 mat-card{
     width: 50%;
-    margin: 10% 0;
+    margin: 10% 6%;
+    height: 50%;
     
 }
 
 mat-card-content{
     h1 {
-        margin: 10% 25% 10% 25%;
+        margin: 8% 25%;
         text-align: center;
     }
     p{

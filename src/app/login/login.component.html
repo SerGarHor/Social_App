@@ -8,7 +8,7 @@
     <mat-card>
         <mat-card-content>
             <h1>Social App</h1>
-            <form (ngSubmit)="login()">
+            <form class="style-form" (ngSubmit)="login()">
                 <mat-form-field class="example-full-width">
                     <mat-label>Email</mat-label>
                     <input matInput [(ngModel)]="email" name="email"  placeholder="pepitoperes@gmail.com">
@@ -19,7 +19,7 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary" type="submit">Login</button>
             </form>
-            <p>¿No tienes cuenta? registrate <a href="/registro">aqui</a></p>
+            <p>¿No tienes cuenta? registrate <a href="/register">aqui</a></p>
         </mat-card-content>
     </mat-card>
 </div>

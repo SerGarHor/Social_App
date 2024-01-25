@@ -1,21 +1,16 @@
-import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { CanActivateFn, Router } from '@angular/router';
+import { inject } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+export const authGuard: CanActivateFn = (route, state) => {
 
-export class AuthGuard implements CanActivateFn  {
-
-  constructor(){
-
+  const token = localStorage.getItem('token')
+  const router = inject(Router) 
+  
+  console.log('token', token)
+  if(token) {
+    return true
+  } else {
+    router.navigate(['login'])
+    return false
   }
-
-  canActivateFn(
-    route: ActivatedRouteSnapshot, 
-    state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>;{
-      return true
-    }
-
 }

@@ -5,10 +5,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +19,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegistroComponent } from './registro/registro.component';
-import { WallComponent } from './components/wall/wall.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,7 @@ import { WallComponent } from './components/wall/wall.component';
     LoginComponent,
     HomeComponent,
     RegistroComponent,
-    WallComponent
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +41,17 @@ import { WallComponent } from './components/wall/wall.component';
     MatIconModule,
     FormsModule,
     HttpClientModule,
-    JwtModule
+    JwtModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true},
+    JwtHelperService,
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

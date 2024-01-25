@@ -1,6 +1,48 @@
 mat-toolbar{
     background-color: black;
+    display: flex;
+    justify-content: space-evenly;
     span{
         color: white;
     }
+}
+
+.style-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 0;
+}
+
+mat-form-field{
+    padding-top: 1.2%;
+}
+
+.style-publication{
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    
+    mat-card{
+        margin: 1%;
+    }
+}
+
+mat-card-content{
+    h1{
+        color: green;
+    }
+    h2{
+        text-align: center;
+    }
+}
+
+.style-name{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.style-only{
+    margin-left: 20%;
 }
