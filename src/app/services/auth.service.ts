@@ -11,32 +11,16 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  register(user: { username: string; password: string }) {
-    return this.http.post(`${this.apiUrl}/register`, user);
+  //Por cuestiones de tiempo no he realizado el respectivo tipado en los parametros
+
+  getUsers(){
+
   }
 
-  login(user: { username: string; password: string }) {
-
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const options = { headers, withCredentials: true };
-
-    return this.http.post(`${this.apiUrl}/login`, user, options);
+  loginUser(user: any){
+    return this.http.post(`${this.apiUrl}/singin`, user)
   }
 
-  saveToken(token: string) {
-    localStorage.setItem('token', token);
-  }
 
-  getToken() {
-    return localStorage.getItem('token');
-  }
 
-  isLoggedIn() {
-    const token = this.getToken();
-    return token && !this.jwtHelper.isTokenExpired(token);
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-  }
 }
