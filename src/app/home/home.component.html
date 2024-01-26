@@ -1,40 +1,64 @@
-<mat-toolbar>
-    <span>{{nameuser}}</span>
-    <mat-form-field>
-        <mat-label>Filter</mat-label>
-        <input (input)="filterPublication()" [(ngModel)]="filter" type="search" matInput placeholder="Sergio">
-    </mat-form-field>
-    <span>My Application</span>
-</mat-toolbar>
 
-<div>
-    <div class="style-button">
-        <button (click)="openDialogPublication()" mat-raised-button>¿Quieres decir algo nuevo?</button>
-    </div>
-</div>
 
-<div class="style-publication">
-    <div *ngFor="let data of filterData" >
-        <mat-card>
-            <mat-card-content>
-                <div  [ngClass]="id == data.iduser ? 'style-name' : 'style-only'">
-                    <h1>{{data.fullname}}</h1>
-                    <div *ngIf="id == data.iduser">
-                        <button mat-icon-button color="primary" (click)="editPublication(data)"> 
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button color="warn" (click)="deletePublication(data.iduser)"> 
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </div>
-                </div>
-               
-               <div>
-                <h2>{{data.title}}</h2>
-                <p>{{data.publication}}</p>
-               </div>
-               
-            </mat-card-content>
-        </mat-card>
-    </div>
-</div>
+<mat-drawer-container>
+    <mat-drawer-content>
+        <mat-toolbar>
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>My Application</span>
+        </mat-toolbar>
+        <div>
+            <div class="style-button">
+                <mat-form-field>
+                    <mat-label>Filtrar por publicación</mat-label>
+                    <input (input)="filterPublication()" [(ngModel)]="filter" type="search" matInput
+                        placeholder="Sergio">
+                </mat-form-field>
+                <button (click)="openDialogPublication()" mat-raised-button>¿Quieres decir algo nuevo?</button>
+            </div>
+        </div>
+
+        <div class="style-publication">
+            <div *ngFor="let data of filterData">
+                <mat-card>
+                    <mat-card-content>
+                        <div [ngClass]="id == data.iduser ? 'style-name' : 'style-only'">
+                            <h1>{{data.fullname}}</h1>
+                            <div *ngIf="id == data.iduser">
+                                <button mat-icon-button color="primary" (click)="editPublication(data)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" (click)="deletePublication(data.iduser)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2>{{data.title}}</h2>
+                            <p>{{data.publication}}</p>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </mat-drawer-content>
+
+    <mat-drawer #drawer mode="side" opened="false" style="width: 25%;">
+        <mat-toolbar>
+            
+        </mat-toolbar>
+        <div class="style-menu">
+            <h2>{{nameuser}}</h2>
+            <span></span>
+            <button mat-raised-button class="style-button" (click)="openDialogUser()">
+                Editar datos personales
+            </button>
+            <button mat-raised-button class="style-button" (click)="exit()">
+                Salir
+            </button>
+        </div>
+    </mat-drawer>
+</mat-drawer-container>

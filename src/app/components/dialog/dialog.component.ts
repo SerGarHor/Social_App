@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,27 +7,51 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
-export class DialogComponent {
+export class DialogComponent implements OnInit {
   publication: string = ''
   titulo: string = ''
   iduser: any = localStorage.getItem('user')
+  isUpDate: boolean = false
 
   constructor(
     private services: AuthService,
-    private dialogRef: MatDialogRef<DialogComponent>
-  ){}
+    private dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+  }
 
-  save(){
-    let data = {
-      "iduser": JSON.parse(this.iduser).id,
-      "title": this.titulo,
-      "publication": this.publication
+  ngOnInit(): void {
+    if (this.data != null && this.data.isUpdate) {
+      this.iduser = this.data.alldata.iduser
+      this.titulo = this.data.alldata.title
+      this.publication = this.data.alldata.publication
     }
-    this.services.createPublication(data).subscribe((res:any) => {
-      if( res.status == 200){
-        this.dialogRef.close(res)
+  }
 
+  save() {
+    if (this.data != null && this.data.isUpdate) {
+      let data = {
+        "iduser": this.iduser,
+        "title": this.titulo,
+        "publication": this.publication
       }
-    })
+      this.services.updatePublication(data).subscribe((res: any) => {
+        if (res.status == 200) {
+          this.dialogRef.close(res)
+        }
+      })
+    } else {
+      let data = {
+        "iduser": JSON.parse(this.iduser).id,
+        "title": this.titulo,
+        "publication": this.publication
+      }
+      this.services.createPublication(data).subscribe((res: any) => {
+        if (res.status == 200) {
+          this.dialogRef.close(res)
+        }
+      })
+    }
+
   }
 }

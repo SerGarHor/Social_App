@@ -1,15 +1,15 @@
-.center-container{
+.center-container {
     display: flex;
     width: 100%;
     height: 100vh;
 }
 
-.style-form{
+.style-form {
     display: flex;
     flex-direction: column;
 }
 
-.login-title{
+.login-title {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -17,21 +17,23 @@
     width: 50%;
 }
 
-mat-card{
+mat-card {
     width: 50%;
     margin: 10% 6%;
     height: 50%;
-    
+
 }
 
-mat-card-content{
+mat-card-content {
     h1 {
         margin: 8% 25%;
         text-align: center;
     }
-    p{
+
+    p {
         text-align: center;
     }
+
     display: flex;
     flex-direction: column;
 }

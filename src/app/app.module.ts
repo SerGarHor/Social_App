@@ -12,6 +12,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { RegistroComponent } from './registro/registro.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { DialogUserComponent } from './components/dialog-user/dialog-user.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     LoginComponent,
     HomeComponent,
     RegistroComponent,
-    DialogComponent
+    DialogComponent,
+    DialogUserComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     JwtModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS},

@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -17,22 +17,22 @@ export class RegistroComponent {
   password: string = '';
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private router: Router,
     private _snackBar: MatSnackBar
-  ){}
+  ) { }
 
-  register(){
+  register() {
     this.authService.createUser({ email: this.email, age: this.age, fullname: this.fullname, password: this.password })
-    .subscribe((res: any) =>{
-      if (res.status == 200) {
-        this._snackBar.open(res.message, 'x')
-        setTimeout(() => {
-          this._snackBar.dismiss();
-        }, 4000);
-        this.router.navigate(['login'])
-      }
-    })
+      .subscribe((res: any) => {
+        if (res.status == 200) {
+          this._snackBar.open(res.message, 'x')
+          setTimeout(() => {
+            this._snackBar.dismiss();
+          }, 4000);
+          this.router.navigate(['login'])
+        }
+      })
   }
 
 }
