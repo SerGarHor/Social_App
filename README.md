@@ -1,27 +1,35 @@
-# SocialRed
+# Social_App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+Hola a todos, este proyecto ha sido una entrevista tecnica, la cual debia realizar un login, un registro, menu lateral con informacion
+poder crear, eliminar y editar sus publicaciones y poder filtrar las publicaciones
 
-## Development server
+Este proyecto se realizo con las siguentes siguiendo el patron de diseño MVC, tiene las siguientes configuraciones para que lo corras:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![image](https://github.com/SerGarHor/Social_App/assets/93298529/99139ff4-d561-49c1-98b9-b56caa3d6e72)
 
-## Code scaffolding
+El backend de este proyecto tambien esta en el repositorio, aca el link: https://github.com/SerGarHor/Back_Social_App
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Funciones importantes:
 
-## Build
+Se creo un servicio para poder controlar el token ya que el login y cada petición va con el JWT, por ende para ahorrar codigo cree este servicio
+para que en cada petición se haga envio de el token en los headers
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![image](https://github.com/SerGarHor/Social_App/assets/93298529/26f0a638-f96f-4dad-8503-884b5070c42a)
 
-## Running unit tests
+Se creo un guard para que el usuario que no este registrado o no se logue no tenga ingreso al home de la app
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![image](https://github.com/SerGarHor/Social_App/assets/93298529/088b273f-ded2-4ad6-afd9-f99f24ffed5b)
 
-## Running end-to-end tests
+He creado dos componentes para ser reutilizados en ciertas partes del codigo que tenia que hacer cosas parecidas
+son dos dialog
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![image](https://github.com/SerGarHor/Social_App/assets/93298529/c9e0de58-5450-4be4-9623-3b610705873e)
 
-## Further help
+En un servicio podemos encontrar todas las peticiones http que se realizan en la app, esto con el fin de tener estructurado todo en un mismo archivo y organizado
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![image](https://github.com/SerGarHor/Social_App/assets/93298529/e47a7093-84a3-4573-91ca-21aaf82d1c23)
+
+Esto es como lo mas importante de la app, el resto ya puedes mirar el codigo y ver componente por componente 
+
+Muchas suerte en el camino de la programación 🧑‍💻
+
